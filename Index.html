@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MLDI AUTO HUB — Автомаркетплейс</title>
+<style>
+:root{--bg:#02050a;--panel:#050d19;--panel2:#07152a;--line:#0b2e59;--blue:#087cff;--cyan:#16bfff;--text:#eaf4ff;--muted:#7f9bbd}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.45 Inter,system-ui,-apple-system,Segoe UI,sans-serif}button,input,select{font:inherit}button{cursor:pointer;color:inherit}.top{height:70px;display:flex;align-items:center;gap:28px;padding:0 24px;border-bottom:1px solid var(--line);background:#030811;position:sticky;top:0;z-index:5}.logo{display:flex;align-items:center;gap:10px;min-width:210px;font-weight:900;letter-spacing:1px;font-size:20px}.mark{font-size:33px;color:var(--blue);font-style:italic;text-shadow:0 0 20px #087cff}.logo small{display:block;font-size:10px;color:var(--cyan);letter-spacing:3px}.nav{display:flex;gap:20px;align-items:center;flex:1}.nav a{color:#b7cde7;text-decoration:none;padding:23px 0;border-bottom:2px solid transparent}.nav a.active{color:var(--cyan);border-color:var(--blue)}.top-search{background:#06142a;border:1px solid var(--line);padding:10px 14px;border-radius:10px;color:#9bb6d7;width:220px}.primary{background:linear-gradient(110deg,#0569ff,#078cff);border:1px solid #168bff;padding:11px 16px;border-radius:9px;font-weight:700;box-shadow:0 0 22px #006eff35}.layout{display:grid;grid-template-columns:240px minmax(420px,1fr) 245px;gap:14px;padding:16px;max-width:1800px;margin:auto}.panel{background:linear-gradient(145deg,#061326,#030a14);border:1px solid var(--line);border-radius:12px;overflow:hidden}.side{padding:14px}.section-title{font-size:15px;font-weight:800;margin:0 0 12px}.cat{display:flex;align-items:center;justify-content:space-between;padding:9px 10px;border-radius:8px;color:#b5cce8;margin:2px 0;cursor:pointer}.cat:hover,.cat.active{background:linear-gradient(90deg,#087cff,#0054ce);color:white}.count{color:#83b8f8;font-size:12px}.brands{margin-top:12px;border-top:1px solid var(--line);padding-top:15px}.brand{padding:7px 4px;color:#b5cce8;display:flex;justify-content:space-between}.premium{margin-top:14px;padding:16px;background:#061a35;border:1px solid #064d9a;border-radius:10px}.premium .crown{font-size:25px;color:var(--cyan)}.premium p{color:#90afd5;font-size:12px}.premium button{width:100%;background:#062f66;border:1px solid #0869c8;padding:9px;border-radius:8px;color:#4fcaff}.main{min-width:0}.searchrow{display:flex;gap:10px;padding:12px;background:#040b15;border:1px solid var(--line);border-radius:12px}.searchrow input{flex:1;min-width:0;background:#06152b;border:1px solid #0c3c72;color:white;padding:13px;border-radius:8px;outline:none}.location{background:#06152b;border:1px solid #0c3c72;color:var(--cyan);padding:12px;border-radius:8px;white-space:nowrap}.filters{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.filters select{background:#06152b;color:#c5dcf7;border:1px solid #104477;border-radius:8px;padding:10px;min-width:100px}.resultsbar{display:flex;justify-content:space-between;align-items:center;margin:15px 2px}.resultsbar strong{font-size:15px}.sort{background:#06152b;color:#c5dcf7;border:1px solid var(--line);border-radius:8px;padding:9px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.car{border:1px solid #0b3566;background:linear-gradient(150deg,#06172d,#030a14);border-radius:11px;overflow:hidden;transition:.2s;min-width:0}.car:hover{border-color:#078cff;transform:translateY(-2px);box-shadow:0 8px 25px #006eff20}.photo{height:155px;position:relative;background:#0b1a2c;overflow:hidden}.photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9) contrast(1.08)}.tag{position:absolute;top:9px;left:9px;background:#087cff;color:white;padding:4px 8px;border-radius:5px;font-size:11px;font-weight:800}.heart{position:absolute;right:9px;top:8px;background:#031020cc;border:1px solid #23609a;border-radius:50%;width:30px;height:30px;font-size:17px}.heart.saved{color:#27bfff}.carbody{padding:10px}.car h3{font-size:13px;margin:0 0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.price{font-size:19px;color:#29bdff;font-weight:900}.old{font-size:11px;color:#54799f;text-decoration:line-through;margin-left:6px}.specs{display:flex;gap:8px;flex-wrap:wrap;color:#8eafd5;font-size:11px;margin:9px 0}.place{color:#78a3d5;font-size:11px;border-top:1px solid #0b2544;padding-top:8px}.verified{color:#21baff;font-size:11px;margin-top:8px}.right{padding:14px}.quick{background:#061a33;border:1px solid #0b4d88;border-radius:10px;padding:13px;margin-bottom:18px}.quick p{color:#8aaed6;font-size:12px}.quick button{width:100%;background:#062b57;border:1px solid #0d4c88;color:var(--cyan);padding:9px;border-radius:7px}.filtergroup{margin:17px 0}.filtergroup label{display:block;font-weight:700;margin-bottom:8px}.range{display:flex;gap:6px}.range input{width:50%;min-width:0;background:#06152b;color:white;border:1px solid #0c3c72;border-radius:7px;padding:9px}.right select{width:100%;background:#06152b;color:white;border:1px solid #0c3c72;padding:9px;border-radius:7px}.right input[type=range]{width:100%;accent-color:var(--blue)}.check{display:flex;gap:8px;align-items:center;color:#a9c4e4;margin:8px 0}.check input{accent-color:var(--blue)}.apply{width:100%;margin-top:10px}.reset{width:100%;background:transparent;border:0;color:#26bfff;padding:10px}.empty{display:none;padding:35px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:10px}.pagination{display:flex;justify-content:center;gap:7px;padding:20px}.pagination button{background:#06152a;border:1px solid var(--line);border-radius:7px;padding:8px 13px}.pagination button.active{background:#087cff;border-color:#087cff}.footer{color:#4c6d92;text-align:center;padding:20px;border-top:1px solid #071a30;font-size:12px}
+
+.modal-backdrop{display:none;position:fixed;inset:0;background:#000c;z-index:20;align-items:center;justify-content:center;padding:16px}
+.modal-backdrop.open{display:flex}.modal{width:min(720px,100%);max-height:92vh;overflow:auto;background:#041020;border:1px solid #1264ae;border-radius:16px;box-shadow:0 20px 90px #000b;padding:22px}
+.modalhead{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}.modalhead h2{margin:0;font-size:20px}.close{background:#071a31;border:1px solid #174a7c;border-radius:8px;padding:7px 11px}
+.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.field label{display:block;color:#9fc3eb;font-size:12px;margin-bottom:6px}.field input,.field select,.field textarea{width:100%;background:#06152b;color:#eaf4ff;border:1px solid #124477;border-radius:8px;padding:11px;outline:none}.field textarea{min-height:90px;resize:vertical}.field.full{grid-column:1/-1}.modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:18px}.secondary{background:#071a31;border:1px solid #174a7c;padding:10px 14px;border-radius:8px}.detail-hero{width:100%;height:250px;object-fit:cover;border-radius:10px;border:1px solid var(--line)}.detail-price{font-size:27px;font-weight:900;color:var(--cyan);margin:12px 0}.detail-specs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:14px 0}.detail-specs div{padding:10px;background:#06172c;border:1px solid #0b2e59;border-radius:8px;color:#a9c8ed}.modal-note{color:#82a4cb;font-size:12px;margin-top:12px}.toast{position:fixed;right:18px;bottom:18px;z-index:30;background:#062c56;border:1px solid #078cff;color:#eaf4ff;padding:13px 17px;border-radius:10px;display:none;max-width:calc(100% - 36px);box-shadow:0 8px 35px #0008}
+
+@media(max-width:1200px){.layout{grid-template-columns:210px minmax(0,1fr)}.right{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.right .quick{margin:0}.filtergroup{margin:0}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.nav{gap:12px}.top-search{display:none}}
+@media(max-width:760px){.top{height:auto;min-height:64px;padding:10px 14px;flex-wrap:wrap;gap:10px}.logo{min-width:0;flex:1}.nav{order:3;flex-basis:100%;overflow:auto;gap:18px}.nav a{padding:8px 0;white-space:nowrap}.top .primary{padding:9px;font-size:12px}.layout{display:flex;flex-direction:column;padding:10px}.layout>.panel:first-child{display:none}.right{display:block}.right .quick{margin-bottom:12px}.filtergroup{margin:14px 0}.searchrow{flex-wrap:wrap}.searchrow input{flex-basis:100%}.location{flex:1}.filters select{flex:1}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.photo{height:115px}.carbody{padding:8px}.price{font-size:16px}.old{display:none}.specs{gap:5px;font-size:10px}.car h3{font-size:12px}.resultsbar{gap:8px;flex-wrap:wrap}.right{padding:12px}}
+@media(max-width:400px){.grid{grid-template-columns:1fr}.photo{height:180px}.car h3{font-size:14px}.top .primary{font-size:0}.top .primary:after{content:'＋';font-size:18px}}
+</style>
+</head>
+<body>
+<header class="top">
+ <div class="logo"><span class="mark">M</span><span>MLDI<small>AUTO HUB</small></span></div>
+ <nav class="nav"><a href="#" class="active">⌂ Главная</a><a href="#catalog">▣ Объявления</a><a href="#">♧ Карта</a><a href="#">⚒ Заявки</a><a href="#">▤ Бизнес</a></nav>
+ <input class="top-search" id="topSearch" placeholder="⌕ Поиск по сайту...">
+ <button aria-label="Уведомления">♧</button><button aria-label="Избранное">♡</button><button aria-label="Профиль">☻</button>
+ <button class="primary" id="openListing">＋ Подать объявление</button>
+</header>
+<div class="layout" id="catalog">
+<aside class="panel side">
+ <h2 class="section-title">Категории</h2>
+ <div class="cat active" data-cat="Все">🚘 Все автомобили <span class="count">12 458</span></div>
+ <div class="cat" data-cat="Легковые">🚗 Легковые <span class="count">9 421</span></div>
+ <div class="cat" data-cat="Внедорожники">🚙 Внедорожники <span class="count">1 862</span></div>
+ <div class="cat" data-cat="Коммерческие">🚚 Коммерческие <span class="count">842</span></div>
+ <div class="cat" data-cat="Электро">⚡ Электромобили <span class="count">333</span></div>
+ <div class="cat" data-cat="Мото">🏍 Мотоциклы <span class="count">421</span></div>
+ <div class="cat" data-cat="Запчасти">⚙ Запчасти <span class="count">2 341</span></div>
+ <div class="cat" data-cat="Мастерские">🛠 Мастерские <span class="count">856</span></div>
+ <div class="cat" data-cat="Сервисы">🔧 Автосервисы <span class="count">642</span></div>
+ <div class="brands"><h2 class="section-title">Популярные марки</h2>
+ <div class="brand">◉ BMW <span class="count">1 245</span></div><div class="brand">◉ Mercedes-Benz <span class="count">1 087</span></div><div class="brand">◉ Audi <span class="count">936</span></div><div class="brand">◉ Volkswagen <span class="count">812</span></div><div class="brand">◉ Toyota <span class="count">698</span></div><div class="brand">◉ Škoda <span class="count">543</span></div>
+ </div>
+ <div class="premium"><div class="crown">♛</div><b>Премиум размещение</b><p>Поднимите объявление выше и получите больше просмотров.</p><button onclick="alert('Продвижение объявлений появится в следующей версии')">Подробнее</button></div>
+</aside>
+<main class="main">
+ <div class="searchrow"><input id="search" placeholder="⌕ Поиск по марке, модели, цене, году, пробегу..."><button class="location" onclick="document.getElementById('search').value='Narva';filterCars()">⌖ Нарва⌄</button></div>
+ <div class="filters">
+ <select id="make"><option value="">Марка</option><option>BMW</option><option>Mercedes-Benz</option><option>Audi</option><option>Toyota</option><option>Volkswagen</option><option>Škoda</option><option>Porsche</option></select>
+ <select id="model"><option value="">Модель</option><option>520d</option><option>E 220d</option><option>A6</option><option>RAV4</option><option>Passat</option></select>
+ <select id="minprice"><option value="">Цена от</option><option value="10000">10 000 €</option><option value="20000">20 000 €</option><option value="30000">30 000 €</option></select>
+ <select id="maxprice"><option value="">Цена до</option><option value="15000">15 000 €</option><option value="25000">25 000 €</option><option value="40000">40 000 €</option><option value="50000">50 000 €</option></select>
+ <select id="year"><option value="">Год от</option><option value="2015">2015</option><option value="2018">2018</option><option value="2020">2020</option></select>
+ <select id="fuel"><option value="">Топливо</option><option>Дизель</option><option>Бензин</option><option>Гибрид</option><option>Электро</option></select>
+ </div>
+ <div class="resultsbar"><strong id="resultCount">Найдено: 12 458 объявлений</strong><select class="sort" id="sort"><option value="new">Сначала новые</option><option value="cheap">Сначала дешевле</option><option value="expensive">Сначала дороже</option></select></div>
+ <div class="grid" id="cars">
+ <article class="car" data-make="BMW" data-model="520d xDrive" data-price="17990" data-year="2018" data-fuel="Дизель" data-cat="Легковые" data-description="Ухоженный автомобиль. Демонстрационное объявление."><div class="photo"><img loading="lazy" src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=800&q=80" alt="BMW 5 Series"><span class="tag">ТОП</span><button class="heart">♡</button></div><div class="carbody"><h3>BMW 520d xDrive 2018</h3><span class="price">17 990 €</span><span class="old">19 900 €</span><div class="specs">▣ 2018　◉ 2.0 л　♧ Дизель<br>⌁ 185 000 км　⚙ Автомат</div><div class="place">⌖ Нарва</div><div class="verified">● Проверенный продавец</div></div></article>
+ <article class="car" data-make="Mercedes-Benz" data-model="E 220d" data-price="22500" data-year="2019" data-fuel="Дизель" data-cat="Легковые" data-description="Ухоженный автомобиль. Демонстрационное объявление."><div class="photo"><img loading="lazy" src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=800&q=80" alt="Mercedes-Benz"><span class="tag">Выгодно</span><button class="heart">♡</button></div><div class="carbody"><h3>Mercedes-Benz E 220d 2019</h3><span class="price">22 500 €</span><span class="old">24 900 €</span><div class="specs">▣ 2019　◉ 2.0 л　♧ Дизель<br>⌁ 160 000 км　⚙ Автомат</div><div class="place">⌖ Нарва</div><div class="verified">● Проверенный продавец</div></div></article>
+ <article class="car" data-make="Audi" data-model="A6 2.0 TDI" data-price="26900" data-year="2020" data-fuel="Дизель" data-cat="Легковые" data-description="Ухоженный автомобиль. Демонстрационное объявление."><div class="photo"><img loading="lazy" src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=800&q=80" alt="Audi"><span class="tag">Проверено</span><button class="heart">♡</button></div><div class="carbody"><h3>Audi A6 2.0 TDI 2020</h3><span class="price">26 900 €</span><span class="old">29 900 €</span><div class="specs">▣ 2020　◉ 2.0 л　♧ Дизель<br>⌁ 140 000 км　⚙ Автомат</div><div class="place">⌖ Нарва</div><div class="verified">● Проверенный продавец</div></div></article>
+ <article class="car" data-make="Toyota" data-model="RAV4" data-price="19500" data-year="2019" data-fuel="Бензин" data-cat="Внедорожники" data-description="Ухоженный автомобиль. Демонстрационное объявление."><div class="photo"><img loading="lazy" src="https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=800&q=80" alt="Toyota SUV"><span class="tag">Хит</span><button class="heart">♡</button></div><div class="carbody"><h3>Toyota RAV4 2019</h3><span class="price">19 500 €</span><span class="old">21 900 €</span><div class="specs">▣ 2019　◉ 2.5 л　♧ Бензин<br>⌁ 120 000 км　⚙ Автомат</div><div class="place">⌖ Нарва</div><div class="verified">● Проверенный продавец</div></div></article>
+ <article class="car" data-make="Mercedes-Benz" data-model="GLE 350d" data-price="34900" data-year="2017" data-fuel="Дизель" data-cat="Внедорожники" data-description="Ухоженный автомобиль. Демонстрационное объявление."><div class="photo"><img loading="lazy" src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=800&q=80" alt="Mercedes SUV"><button class="heart">♡</button></div><div class="carbody"><h3>Mercedes-Benz GLE 350d 2017</h3><span class="price">34 900 €</span><span class="old">38 500 €</span><div class="specs">▣ 2017　◉ 3.0 л　♧ Дизель<br>⌁ 180 000 км　⚙ Автомат</div><div class="place">⌖ Нарва</div><div class="verified">● Проверенный продавец</div></div></article>
+ <article class="car" data-make="BMW" data-model="320i" data-price="14200" data-year="2016" data-fuel="Бензин" data-cat="Легковые" data-description="Ухоженный автомобиль. Демонстрационное объявление."><div class="photo"><img loading="lazy" src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80" alt="BMW blue"><button class="heart">♡</button></div><div class="carbody"><h3>BMW 320i 2016</h3><span class="price">14 200 €</span><span class="old">16 500 €</span><div class="specs">▣ 2016　◉ 2.0 л　♧ Бензин<br>⌁ 190 000 км　⚙ Механика</div><div class="place">⌖ Нарва</div><div class="verified">● Проверенный продавец</div></div></article>
+ <article class="car" data-make="Volkswagen" data-model="Passat" data-price="15900" data-year="2017" data-fuel="Дизель" data-cat="Легковые" data-description="Ухоженный автомобиль. Демонстрационное объявление."><div class="photo"><img loading="lazy" src="https://images.unsplash.com/photo-1592853625511-ad0edcc69c07?auto=format&fit=crop&w=800&q=80" alt="Volkswagen"><button class="heart">♡</button></div><div class="carbody"><h3>Volkswagen Passat 2017</h3><span class="price">15 900 €</span><span class="old">18 500 €</span><div class="specs">▣ 2017　◉ 1.6 л　♧ Дизель<br>⌁ 210 000 км　⚙ Механика</div><div class="place">⌖ Нарва</div><div class="verified">● Проверенный продавец</div></div></article>
+ <article class="car" data-make="Škoda" data-model="Kodiaq" data-price="24900" data-year="2018" data-fuel="Дизель" data-cat="Внедорожники" data-description="Ухоженный автомобиль. Демонстрационное объявление."><div class="photo"><img loading="lazy" src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=800&q=80" alt="SUV"><button class="heart">♡</button></div><div class="carbody"><h3>Škoda Kodiaq 2018</h3><span class="price">24 900 €</span><span class="old">27 900 €</span><div class="specs">▣ 2018　◉ 2.0 л　♧ Дизель<br>⌁ 140 000 км　⚙ Автомат</div><div class="place">⌖ Нарва</div><div class="verified">● Проверенный продавец</div></div></article>
+ <article class="car" data-make="Porsche" data-model="Cayenne" data-price="42500" data-year="2016" data-fuel="Бензин" data-cat="Внедорожники" data-description="Ухоженный автомобиль. Демонстрационное объявление."><div class="photo"><img loading="lazy" src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80" alt="Porsche"><button class="heart">♡</button></div><div class="carbody"><h3>Porsche Cayenne 2016</h3><span class="price">42 500 €</span><span class="old">46 900 €</span><div class="specs">▣ 2016　◉ 3.0 л　♧ Бензин<br>⌁ 150 000 км　⚙ Автомат</div><div class="place">⌖ Нарва</div><div class="verified">● Проверенный продавец</div></div></article>
+ </div>
+ <div class="empty" id="empty">Ничего не найдено. Попробуйте изменить фильтры.</div>
+ <div class="pagination"><button>‹</button><button class="active">1</button><button>2</button><button>3</button><button>4</button><button>…</button><button>312</button><button>›</button></div>
+</main>
+<aside class="panel right">
+ <div class="quick"><b>ϟ　Быстрый поиск</b><p>Сохраните настройки для быстрого поиска нужного автомобиля.</p><button onclick="alert('Сохранение поиска потребует аккаунт — добавим позже')">Сохранить поиск</button></div>
+ <div class="filtergroup"><label>Цена, €</label><div class="range"><input id="sideMin" type="number" placeholder="От 0"><input id="sideMax" type="number" placeholder="До 100 000"></div><input type="range" min="0" max="100000" value="100000" id="priceRange"></div>
+ <div class="filtergroup"><label>Год выпуска</label><div class="range"><input id="yearMin" type="number" placeholder="От 2000"><input id="yearMax" type="number" placeholder="До 2025"></div></div>
+ <div class="filtergroup"><label>Тип топлива</label><label class="check"><input type="checkbox" value="Бензин" class="fuelcheck"> Бензин</label><label class="check"><input type="checkbox" value="Дизель" class="fuelcheck"> Дизель</label><label class="check"><input type="checkbox" value="Гибрид" class="fuelcheck"> Гибрид</label><label class="check"><input type="checkbox" value="Электро" class="fuelcheck"> Электро</label></div>
+ <div class="filtergroup"><label>Коробка передач</label><label class="check"><input type="checkbox"> Механика</label><label class="check"><input type="checkbox"> Автомат</label><label class="check"><input type="checkbox"> Вариатор</label></div>
+ <button class="primary apply" onclick="filterCars()">⚙ Применить фильтры</button><button class="reset" onclick="resetFilters()">Сбросить фильтры</button>
+</aside>
+</div>
+
+<div class="modal-backdrop" id="listingModal" role="dialog" aria-modal="true" aria-labelledby="listingTitle">
+ <div class="modal">
+  <div class="modalhead"><h2 id="listingTitle">Подать объявление</h2><button class="close" data-close="listingModal" aria-label="Закрыть">✕</button></div>
+  <form id="listingForm">
+   <div class="formgrid">
+    <div class="field"><label for="newMake">Марка *</label><input id="newMake" required placeholder="Например, BMW"></div>
+    <div class="field"><label for="newModel">Модель *</label><input id="newModel" required placeholder="Например, 530d"></div>
+    <div class="field"><label for="newYear">Год выпуска *</label><input id="newYear" type="number" min="1950" max="2026" required placeholder="2018"></div>
+    <div class="field"><label for="newPrice">Цена, € *</label><input id="newPrice" type="number" min="1" required placeholder="17990"></div>
+    <div class="field"><label for="newMileage">Пробег, км</label><input id="newMileage" type="number" min="0" placeholder="185000"></div>
+    <div class="field"><label for="newFuel">Топливо</label><select id="newFuel"><option>Дизель</option><option>Бензин</option><option>Гибрид</option><option>Электро</option></select></div>
+    <div class="field"><label for="newGear">Коробка передач</label><select id="newGear"><option>Автомат</option><option>Механика</option><option>Вариатор</option></select></div>
+    <div class="field"><label for="newLocation">Город</label><input id="newLocation" value="Нарва" placeholder="Нарва"></div>
+    <div class="field full"><label for="newPhoto">Ссылка на фотографию (необязательно)</label><input id="newPhoto" type="url" placeholder="https://..."></div>
+    <div class="field full"><label for="newDescription">Описание</label><textarea id="newDescription" placeholder="Состояние автомобиля, комплектация, история обслуживания..."></textarea></div>
+   </div>
+   <p class="modal-note">Это демонстрационная публикация: объявление сохранится в этом браузере на этом устройстве. Для реального сайта нужны сервер, база данных и аккаунт продавца.</p>
+   <div class="modal-actions"><button type="button" class="secondary" data-close="listingModal">Отмена</button><button class="primary" type="submit">Опубликовать в демоверсии</button></div>
+  </form>
+ </div>
+</div>
+<div class="modal-backdrop" id="detailModal" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+ <div class="modal">
+  <div class="modalhead"><h2 id="detailTitle">Автомобиль</h2><button class="close" data-close="detailModal" aria-label="Закрыть">✕</button></div>
+  <div id="detailContent"></div>
+ </div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<div class="footer">MLDI AUTO HUB · Концепт интерфейса · Демонстрационные объявления, цены и продавцы</div>
+<script>
+let category='Все';
+const cars=[...document.querySelectorAll('.car')];
+function filterCars(){
+ const q=(document.getElementById('search').value+' '+document.getElementById('topSearch').value).trim().toLowerCase();
+ const make=document.getElementById('make').value;
+ const model=document.getElementById('model').value.toLowerCase();
+ const fuel=document.getElementById('fuel').value;
+ const min=Math.max(Number(document.getElementById('minprice').value)||0,Number(document.getElementById('sideMin').value)||0);
+ const max=Math.min(Number(document.getElementById('maxprice').value)||Infinity,Number(document.getElementById('sideMax').value)||Infinity,Number(document.getElementById('priceRange').value)||Infinity);
+ const ymin=Math.max(Number(document.getElementById('year').value)||0,Number(document.getElementById('yearMin').value)||0);
+ const ymax=Number(document.getElementById('yearMax').value)||9999;
+ const fuels=[...document.querySelectorAll('.fuelcheck:checked')].map(x=>x.value);
+ let visible=0;
+ cars.forEach(c=>{const d=c.dataset;const ok=(!q||c.innerText.toLowerCase().includes(q)||d.make.toLowerCase().includes(q)||d.model.toLowerCase().includes(q))&&(!make||d.make===make)&&(!model||d.model.toLowerCase().includes(model))&&(!fuel||d.fuel===fuel)&&(!fuels.length||fuels.includes(d.fuel))&&Number(d.price)>=min&&Number(d.price)<=max&&Number(d.year)>=ymin&&Number(d.year)<=ymax&&(category==='Все'||d.cat===category);c.style.display=ok?'':'none';if(ok)visible++});
+ document.getElementById('resultCount').textContent='Найдено: '+visible+' объявлений';
+ document.getElementById('empty').style.display=visible?'none':'block';
+}
+document.querySelectorAll('.cat').forEach(el=>el.addEventListener('click',()=>{document.querySelectorAll('.cat').forEach(x=>x.classList.remove('active'));el.classList.add('active');category=el.dataset.cat;filterCars()}));
+['search','topSearch','make','model','minprice','maxprice','year','fuel','sideMin','sideMax','yearMin','yearMax'].forEach(id=>document.getElementById(id).addEventListener('input',filterCars));
+document.querySelectorAll('.fuelcheck').forEach(x=>x.addEventListener('change',filterCars));
+document.getElementById('priceRange').addEventListener('input',()=>{document.getElementById('sideMax').value=document.getElementById('priceRange').value;filterCars()});
+document.getElementById('sort').addEventListener('change',e=>{const grid=document.getElementById('cars');const sorted=[...cars].sort((a,b)=>e.target.value==='cheap'?+a.dataset.price- +b.dataset.price:e.target.value==='expensive'?+b.dataset.price- +a.dataset.price:+b.dataset.year- +a.dataset.year);sorted.forEach(x=>grid.appendChild(x))});
+document.querySelectorAll('.heart').forEach(b=>b.addEventListener('click',()=>{b.classList.toggle('saved');b.textContent=b.classList.contains('saved')?'♥':'♡'}));
+function resetFilters(){['search','topSearch','make','model','minprice','maxprice','year','fuel','sideMin','sideMax','yearMin','yearMax'].forEach(id=>document.getElementById(id).value='');document.getElementById('priceRange').value=100000;document.querySelectorAll('.fuelcheck').forEach(x=>x.checked=false);category='Все';document.querySelectorAll('.cat').forEach(x=>x.classList.toggle('active',x.dataset.cat==='Все'));filterCars()}
+
+const euro = n => new Intl.NumberFormat('ru-RU').format(Number(n)||0)+' €';
+const toast = message => { const t=document.getElementById('toast');t.textContent=message;t.style.display='block';clearTimeout(window.__toastTimer);window.__toastTimer=setTimeout(()=>t.style.display='none',3000); };
+function openModal(id){document.getElementById(id).classList.add('open');document.body.style.overflow='hidden'}
+function closeModal(id){document.getElementById(id).classList.remove('open');document.body.style.overflow=''}
+document.getElementById('openListing').addEventListener('click',()=>openModal('listingModal'));
+document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>closeModal(b.dataset.close)));
+document.querySelectorAll('.modal-backdrop').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)closeModal(m.id)}));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.modal-backdrop.open').forEach(m=>closeModal(m.id))});
+
+function openCarDetails(card){
+ const img=card.querySelector('.photo img')?.src||'';
+ const title=card.querySelector('h3')?.textContent||'Автомобиль';
+ const price=card.querySelector('.price')?.textContent||'Цена по запросу';
+ const specs=card.querySelector('.specs')?.innerText||'';
+ const place=card.querySelector('.place')?.innerText||'';
+ const description=card.dataset.description||'Демонстрационное объявление MLDI AUTO HUB.';
+ document.getElementById('detailTitle').textContent=title;
+ document.getElementById('detailContent').innerHTML=`<img class="detail-hero" src="${img}" alt="${title.replaceAll('"','&quot;')}"><div class="detail-price">${price}</div><div class="detail-specs"><div>${specs.replaceAll('\\n','<br>')}</div><div>${place}<br>● Проверенный продавец (демо)<br>Объявление № MLDI-${String([...document.querySelectorAll('.car')].indexOf(card)+1).padStart(4,'0')}</div></div><p>${description}</p><div class="modal-actions"><button class="secondary" id="detailFavorite">♡ В избранное</button><button class="primary" id="contactSeller">Связаться с продавцом</button></div><p class="modal-note">Контакты и сообщения пока не подключены — это интерфейсный прототип.</p>`;
+ openModal('detailModal');
+ document.getElementById('detailFavorite').onclick=()=>{let b=card.querySelector('.heart');b.classList.add('saved');b.textContent='♥';toast('Добавлено в избранное в этой демоверсии')};
+ document.getElementById('contactSeller').onclick=()=>toast('Чат с продавцом подключим на этапе backend');
+}
+document.querySelectorAll('.car').forEach(card=>{
+ card.style.cursor='pointer';
+ card.addEventListener('click',e=>{if(e.target.closest('.heart'))return;openCarDetails(card)});
+});
+
+function restoreUserListings(){
+ let items=[];try{items=JSON.parse(localStorage.getItem('mldi_user_listings')||'[]')}catch(e){}
+ items.forEach(item=>renderUserListing(item,false));
+}
+function renderUserListing(item,prepend=true){
+ const card=document.createElement('article');card.className='car';card.dataset.make=item.make;card.dataset.model=item.model;card.dataset.price=String(item.price);card.dataset.year=String(item.year);card.dataset.fuel=item.fuel;card.dataset.cat='Легковые';card.dataset.description=item.description||'Объявление добавлено пользователем в локальную демоверсию.';
+ const img=(item.photo&&/^https?:\/\//i.test(item.photo))?item.photo:'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=800&q=80';
+ card.innerHTML=`<div class="photo"><img loading="lazy" src="${img}" alt="Фото автомобиля"><span class="tag">ВАШЕ</span><button class="heart" aria-label="В избранное">♡</button></div><div class="carbody"><h3></h3><span class="price"></span><div class="specs"></div><div class="place"></div><div class="verified">● Ваше объявление · локально</div></div>`;
+ card.querySelector('h3').textContent=`${item.make} ${item.model} ${item.year}`;
+ card.querySelector('.price').textContent=euro(item.price);
+ card.querySelector('.specs').textContent=`${item.year} · ${item.fuel} · ${Number(item.mileage||0).toLocaleString('ru-RU')} км · ${item.gear}`;
+ card.querySelector('.place').textContent='⌖ '+(item.location||'Эстония');
+ card.querySelector('.heart').addEventListener('click',e=>{e.stopPropagation();e.currentTarget.classList.toggle('saved');e.currentTarget.textContent=e.currentTarget.classList.contains('saved')?'♥':'♡'});
+ card.addEventListener('click',e=>{if(!e.target.closest('.heart'))openCarDetails(card)});
+ const grid=document.getElementById('cars');if(prepend)grid.prepend(card);else grid.appendChild(card);cars.push(card);
+}
+document.getElementById('listingForm').addEventListener('submit',e=>{
+ e.preventDefault();
+ const item={make:document.getElementById('newMake').value.trim(),model:document.getElementById('newModel').value.trim(),year:Number(document.getElementById('newYear').value),price:Number(document.getElementById('newPrice').value),mileage:Number(document.getElementById('newMileage').value)||0,fuel:document.getElementById('newFuel').value,gear:document.getElementById('newGear').value,location:document.getElementById('newLocation').value.trim()||'Эстония',photo:document.getElementById('newPhoto').value.trim(),description:document.getElementById('newDescription').value.trim()};
+ try{const all=JSON.parse(localStorage.getItem('mldi_user_listings')||'[]');all.unshift(item);localStorage.setItem('mldi_user_listings',JSON.stringify(all));}catch(err){toast('Не удалось сохранить в браузере. Возможно, хранилище заполнено.');return}
+ renderUserListing(item,true);e.target.reset();document.getElementById('newLocation').value='Нарва';closeModal('listingModal');filterCars();toast('Объявление добавлено в демоверсию сайта');
+});
+restoreUserListings();
+
+</script>
+</body></html>
